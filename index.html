@@ -17,12 +17,13 @@ body{background:var(--bg);display:flex;align-items:center;justify-content:center
 .f{width:100%;height:100%;display:block;pointer-events:none}
 .hs{position:absolute;display:block;cursor:pointer;border-radius:22%}
 .hs:active{background:rgba(0,0,0,.25)}
+.app,.bn,#lock,#off{will-change:transform,opacity;backface-visibility:hidden;-webkit-backface-visibility:hidden}
 .app{background:#000;opacity:0;transform:scale(.25);pointer-events:none;transition:transform .38s cubic-bezier(.2,.8,.2,1),opacity .25s}
 .app.on{opacity:1;transform:none;pointer-events:auto}
 #photos{z-index:10}#ig1,#ig2,#ig3,#ig4,#ig5,#ig6,#ig7,#ig8{z-index:13}#call{z-index:200}
 .app.fade{transform:none;transition:opacity .22s}
-#call.app.fade{opacity:0;transform:scale(1.12);filter:blur(22px);transition:opacity 1.2s ease,transform 1.5s cubic-bezier(.16,1,.3,1),filter 1.1s ease}
-#call.app.fade.on{opacity:1;transform:none;filter:blur(0)}
+#call.app.fade{opacity:0;transform:scale(1.08);transition:opacity 1.2s ease,transform 1.5s cubic-bezier(.16,1,.3,1)}
+#call.app.fade.on{opacity:1;transform:none}
 #call.app.fade:not(.on){transition-duration:.35s}
 .hs.q:active{background:transparent}
 #lock{z-index:300;transition:transform .5s cubic-bezier(.3,.7,.2,1)}
@@ -91,6 +92,7 @@ body{background:var(--bg);display:flex;align-items:center;justify-content:center
 <div id="off"></div>
 </div></div></div>
 <script>
+document.querySelectorAll("img").forEach(i=>{try{i.decoding="sync";i.decode&&i.decode().catch(()=>{})}catch(e){}});
 const CFG={homeBannerDelay:2000,albumBannerDelay:600,albumBannerStay:2800};
 const $=s=>document.querySelector(s),fitEl=$("#fit");
 const IGS=["ig1","ig2","ig3","ig4","ig5","ig6","ig7","ig8"];
